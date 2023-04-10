@@ -1,0 +1,252 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+[data-mode=light] {
+  --bg-color: #f5f5f5;
+  --subheading-color: #151d2a;
+  --password-rate: #000000;
+}
+
+[data-mode=dark] {
+  --bg-color: #151d2a;
+  --subheading-color: #ffffff;
+  --password-rate: #ffffff;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper .input-hidden {
+  display: none;
+}
+.wrapper .toggle:focus {
+  outline: 3px solid rgb(58, 58, 58);
+}
+.wrapper .toggle {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: 42px;
+  height: 23px;
+  margin: 25px 0;
+  border-radius: 50px;
+  background: #000;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.wrapper .toggle .ball {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  margin: 3px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: 0.3s ease-out;
+}
+.wrapper .toggle-dark {
+  background: #fff;
+}
+.wrapper .toggle-dark .ball-dark {
+  background: #000;
+  transform: translateX(-20px);
+}
+.wrapper .check-your-password {
+  text-align: center;
+  margin-bottom: 25px;
+  color: transparent;
+  background-image: linear-gradient(65deg, #0bff7b 0%, #7625e0 70%, #2412bd 100%);
+  -webkit-background-clip: text;
+  font-size: 4rem;
+  font-weight: bold;
+}
+.wrapper .check-your-password .animation {
+  animation: animation infinite 1s;
+  color: #5b0dbf;
+}
+@keyframes animation {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.wrapper .password-include {
+  margin: 25px 0;
+  font-size: 2rem;
+  color: var(--subheading-color);
+}
+.wrapper .lower-case-control,
+.wrapper .upper-case-control,
+.wrapper .numbers-control,
+.wrapper .special-characters-control,
+.wrapper .min-characters-control {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+  color: #ff0000;
+}
+.wrapper .active {
+  color: #37b22d;
+}
+.wrapper .input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 100px;
+  margin-top: 25px;
+  border-radius: 10px;
+  background-color: rgb(189, 189, 189);
+  transition: background-color 0.1s 0.1s;
+}
+.wrapper .input-container .field {
+  display: flex;
+  align-items: center;
+  outline: none;
+  padding: 0.5em;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2509803922);
+  background-color: white;
+}
+.wrapper .input-container .field .password-hidden,
+.wrapper .input-container .field .password-visible {
+  font-size: 3rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.wrapper .input-container .field .password {
+  width: 150px;
+  padding: 0.5em;
+  border: none;
+  font-size: 1.5rem;
+}
+.wrapper .input-container .field .password-visible {
+  display: none;
+}
+.wrapper .bad-password {
+  background-color: #bb2525;
+}
+.wrapper .medium-password {
+  background-color: #edc94a;
+}
+.wrapper .good-password {
+  background-color: #37b22d;
+}
+.wrapper .password-rate {
+  font-size: 1.5rem;
+  color: var(--password-rate);
+  margin: 25px 0;
+}
+.wrapper footer.links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 12px;
+}
+.wrapper footer.links-container .visit-text {
+  color: #8b8b8b;
+}
+.wrapper footer.links-container .visit-text:hover {
+  color: #00a3ff;
+  transition: color 0.3s;
+}
+.wrapper footer.links-container .icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+.wrapper footer.links-container .icons-container .visit-link {
+  margin-left: 10px;
+  transition: color 0.3s;
+  color: #8b8b8b;
+}
+.wrapper footer.links-container .icons-container .visit-link .fa-brands {
+  margin-right: 5px;
+}
+.wrapper footer.links-container .icons-container .visit-link:hover {
+  color: #00a3ff;
+}
+
+@media (min-width: 768px) {
+  .wrapper .input-container {
+    width: 500px;
+  }
+  .wrapper .input-container .field {
+    width: 400px;
+  }
+  .wrapper .input-container .field .password {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .wrapper .password-include {
+    font-size: 3rem;
+  }
+  .wrapper .lower-case-control,
+  .wrapper .upper-case-control,
+  .wrapper .numbers-control,
+  .wrapper .special-characters-control,
+  .wrapper .min-characters-control {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+  }
+  .wrapper .input-container .field {
+    display: flex;
+    justify-content: space-between;
+  }
+  .wrapper .input-container .field .password {
+    font-size: 2rem;
+  }
+  .wrapper .input-container .field .password-hidden,
+  .wrapper .input-container .field .password-visible {
+    font-size: 3rem;
+  }
+  .wrapper .password-rate {
+    font-size: 2.5rem;
+  }
+  .wrapper footer.links-container {
+    margin-top: 100px;
+    font-size: 2rem;
+  }
+  .wrapper footer.links-container .icons-container .visit-link {
+    margin-right: 10px;
+  }
+}/*# sourceMappingURL=style.css.map */
